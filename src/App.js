@@ -2,7 +2,17 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import Todo from './Todo'
 import axios from 'axios';
+import PropTypes from 'prop-types';
 const axiosAdd = require('axios').default;
+
+function Food(props) {
+  return (
+    <div>
+      <h3>{props.title}</h3>
+      <h3>{props.desc}</h3>
+    </div>
+  );
+}
 
 const foodLike = [
   {
@@ -21,7 +31,6 @@ const foodLike = [
 
 function App() {
   const [posts, setPosts] = useState([]);
-
   useEffect(() => {
     console.log('useEffect 호출됨.');
     axios({
@@ -37,10 +46,15 @@ function App() {
         <li key={post.id}>{post.title}</li>
       ))}
       {foodLike.map(food => (
-        <div key={food.key}>{food.title},{food.desc}</div>
+        <Food key={food.key} title={food.title} desc={food.desc}></Food>
       ))}
     </div>
   );
 }
+
+Food.propTypes = {
+  title: PropTypes.string.isRequired,
+  desc: PropTypes.string.isRequired,
+};
 
 export default App;
