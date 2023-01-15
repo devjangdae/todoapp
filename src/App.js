@@ -1,6 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
+import Todo from './Todo'
+
 
 import axios from 'axios';
 const axiosAdd = require('axios').default;
@@ -19,9 +20,11 @@ function App() {
   
   return (
     <div className="App">
+      <Todo></Todo>
       {posts.map(post => (
         <li key={post.id}>{post.title}</li>
       ))}
+      
     </div>
     
   );
