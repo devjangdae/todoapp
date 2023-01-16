@@ -38,9 +38,9 @@ function App() {
         const response = await axios.get(
           'http://localhost:8080/todos'
         );
+        //console.log(response);
+        //console.log(response.data.data);
         setTodos(response.data.data);
-        
-        console.log(response.data.data);
       } catch (e) {
         console.log(e);
       }
