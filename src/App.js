@@ -30,20 +30,37 @@ const foodLike = [
 ];
 
 function App() {
-  const [posts, setPosts] = useState([]);
+  const [todos, setTodos] = useState([]);
+
   useEffect(() => {
-    console.log('useEffect 호출됨.');
-    axios({
-      method: 'GET',
-      url: 'http://localhost:8080/todos',
-    }).then(response => setPosts(response.data.data))
-  }, [],)
+    const loadData = async () => {
+      try {
+        const response = await axios.get(
+          'http://localhost:8080/todos'
+        );
+        setTodos(response.data.data);
+        
+        console.log(response.data.data);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    loadData();
+  }, []);
+
+  //   axios({
+  //     method: 'GET',
+  //     url: 'http://localhost:8080/todos',
+  //   }).then(response => setTodos(response.data.data))
+  // }, [],)
 
   return (
     <div className="App">
       <Todo></Todo>
-      {posts.map(post => (
-        <li key={post.id}>{post.title}</li>
+      
+      {todos.map(data => (
+        <li key={data.id}>{data.title}</li>
       ))}
       {foodLike.map(food => (
         <Food key={food.key} title={food.title} desc={food.desc}></Food>
