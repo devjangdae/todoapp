@@ -43,7 +43,6 @@ const View = () => {
             <h3>content : {todos.content}</h3>
             <h5>id : {todos.id}</h5>
             <h5>createdAt : {todos.createdAt}</h5>
-            <div>수정</div>
             <div onClick={del}>삭제</div>
         </div>
     );

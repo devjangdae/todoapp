@@ -12,7 +12,7 @@ function App() {
       <Route path="/" element={<Main />} />
       <Route path="/view/:id" element={<View />} />
       <Route path="/create" element={<Create />} />
-      <Route path="/update" element={<Update />} />
+      <Route path="/update/:id" element={<Update />} />
       <Route path="/*" element={<Navigate to="/"></Navigate>}></Route>
     </Routes>
   );

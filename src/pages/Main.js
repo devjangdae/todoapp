@@ -31,15 +31,17 @@ const Main = () => {
             <Todo></Todo>
 
             {todos.map(data => (
-                <Link to={`View/${data.id}`} key={data.id}>
-                    <li>{data.title}</li>
-                </Link>
+                <div key={data.id}>
+                    <Link to={`View/${data.id}`}>
+                        <li>{data.title}</li>
+                    </Link>
+                    <Link to={`Update/${data.id}`}>
+                        <div>수정</div>
+                    </Link>
+                </div>
             ))}
 
-            <Link to="/Update">수정</Link>
             <Link to="/Create">생성</Link>
-
-
         </div>
     );
 };
