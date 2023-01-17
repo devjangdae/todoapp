@@ -7,13 +7,13 @@ const axiosAdd = require('axios').default;
 const View = () => {
     const [todos, setTodos] = useState([]);
     const params = useParams();
-    const profile = todos[params.id];
+    const id = params.id;
 
     useEffect(() => {
         const loadData = async () => {
             try {
                 const response = await axios.get(
-                    'http://localhost:8080/todos'
+                    `http://localhost:8080/todos/${id}`
                 );
                 //console.log(response);
                 //console.log(response.data.data);
@@ -28,15 +28,10 @@ const View = () => {
 
     return (
         <div>
-            Todofile내용부분
-            {profile ? (
-                <div>tttt</div>
-            ) : (
-                <div>ffff</div>
-            )}
-            {todos.map(data => (
-                <li key={data.id}>{data.content}</li>
-            ))}
+            <h2>title : {todos.title}</h2>
+            <h3>content : {todos.content}</h3>
+            <h5>id : {todos.id}</h5>
+            <h5>createdAt : {todos.createdAt}</h5>
         </div>
     );
 };

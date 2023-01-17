@@ -4,13 +4,13 @@
 # Content-Type: application/json; charset=UTF-8 
  
 # {
-#     "title":"test3",
-#     "content":"this is test3"
+#     "title":"카페가기",
+#     "content":"카페가서 커피사오기"
 # }
 
 
 
-# GET http://localhost:8080/todos/YTYtHwMLcvsJw8h_Z5PoV HTTP/1.1
+# GET http://localhost:8080/todos/hvnaTOq273mKhZS68VpqR HTTP/1.1
 # Content-Type: application/json; charset=UTF-8
 
 
@@ -25,9 +25,9 @@
 
 
 
-# DELETE http://localhost:8080/todos/YTYtHwMLcvsJw8h_Z5PoV HTTP/1.1
+# DELETE http://localhost:8080/todos/GFAS_ZvDOwTrZaRdIO8Ei HTTP/1.1
 # Content-Type: application/json; charset=UTF-8 
 
 
-GET http://localhost:8080/todos HTTP/1.1
-Content-Type: application/json; charset=UTF-8
+# GET http://localhost:8080/todos HTTP/1.1
+# Content-Type: application/json; charset=UTF-8

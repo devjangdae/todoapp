@@ -29,17 +29,17 @@ const Main = () => {
     return (
         <div className="App">
             <Todo></Todo>
-            <Link to="/View">뷰</Link>
-            <Link to="/Create">생성</Link>
-            <Link to="/Update">수정</Link>
 
-            
             {todos.map(data => (
-                <Link to={`View/${data.id}`}>
-                <li key={data.id}>{data.id} {data.title}</li>
+                <Link to={`View/${data.id}`} key={data.id}>
+                    <li>{data.title}</li>
                 </Link>
             ))}
-            
+
+            <Link to="/Update">수정</Link>
+            <Link to="/Create">생성</Link>
+
+
         </div>
     );
 };
