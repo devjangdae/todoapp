@@ -15,11 +15,12 @@ const View = () => {
         axios.delete(`http://localhost:8080/todos/${id}`)
             .then((response) => {
                 //console.log(response.data);
+                navigate("/main");
             })
             .catch((response) => {
                 console.log('삭제실패');
             });
-            navigate("/main");
+            
     }
 
     useEffect(() => {
@@ -41,6 +42,7 @@ const View = () => {
 
     return (
         <div>
+            <button onClick={() => navigate(-1)}>뒤로가기</button>
             <h2>title : {todos.title}</h2>
             <h3>content : {todos.content}</h3>
             <h5>id : {todos.id}</h5>

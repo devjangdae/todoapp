@@ -62,6 +62,8 @@ const Update = () => {
 
     return (
         <div>
+            <button onClick={() => navigate(-1)}>뒤로가기</button>
+            
             <p>title</p>
             <p>
                 <input type="text" value={title} onChange={onTitleChange}></input>

@@ -22,7 +22,6 @@ const Create = () => {
       alert("제목을 입력해!");
     } else {
       submit();
-      navigate("/main");
     }
   }
 
@@ -33,7 +32,10 @@ const Create = () => {
         content: content
       }
     )
-      .then((response) => { console.log(response.data); })
+      .then((response) => {
+        //console.log(response.data);
+        navigate("/main");
+      })
       .catch((response) => {
         console.log('전송실패');
       });
@@ -41,6 +43,7 @@ const Create = () => {
 
   return (
     <div>
+      <button onClick={() => navigate(-1)}>뒤로가기</button>
       <p>title</p>
       <p>
         <input type="text" value={title} onChange={onTitleChange}></input>
