@@ -28,8 +28,8 @@ const Update = () => {
                 );
                 //console.log(response);
                 //console.log(response.data.data);
-                // setTitle(response.data.data);
-                // setContent(response.data.data);
+                setTitle(response.data.data.title);
+                setContent(response.data.data.content);
             } catch (e) {
                 console.log(e);
             }
@@ -42,7 +42,6 @@ const Update = () => {
             alert("제목을 입력해!");
         } else {
             submit();
-            navigate("/main");
         }
     }
 
@@ -53,7 +52,9 @@ const Update = () => {
                 content: content
             }
         )
-            .then((response) => { console.log(response.data); })
+            .then((response) => {
+                navigate("/main");
+            })
             .catch((response) => {
                 console.log('전송실패');
             });
@@ -68,7 +69,7 @@ const Update = () => {
 
             <p>content</p>
             <p>
-                <textarea onChange={onContentChange}></textarea>
+                <textarea value={content} onChange={onContentChange}></textarea>
             </p>
 
             <div onClick={updateTodo}>

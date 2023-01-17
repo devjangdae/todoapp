@@ -13,7 +13,9 @@ const View = () => {
 
     const del = () => {
         axios.delete(`http://localhost:8080/todos/${id}`)
-            .then((response) => { console.log(response.data); })
+            .then((response) => {
+                //console.log(response.data);
+            })
             .catch((response) => {
                 console.log('삭제실패');
             });
