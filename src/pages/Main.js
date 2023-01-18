@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
-import Todo from '../Todo'
+import Todo from '../Todo';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import 'antd/dist/reset.css';
-import { Button } from 'antd';
-import { Layout, Menu, theme } from 'antd';
-import { FormOutlined } from '@ant-design/icons';
-import { Divider } from 'antd';
-import { Card } from 'antd';
+import { Button, Layout, Menu, theme, Divider, Card, Space } from 'antd';
+import { EditOutlined, DeleteOutlined, PlusCircleOutlined } from '@ant-design/icons';
+import CanonImage from './canon_ci.png';
 
 const { Header, Content, Footer } = Layout;
 const axiosAdd = require('axios').default;
@@ -18,7 +18,22 @@ const Main = () => {
     const {
         token: { colorBgContainer },
     } = theme.useToken();
+
     const [todos, setTodos] = useState([]);
+    const params = useParams();
+    const id = params.id;
+    const navigate = useNavigate();
+
+    const del = (del_id) => {
+        axios.delete(`http://localhost:8080/todos/${del_id}`)
+            .then((response) => {
+                //console.log(response.data);
+                navigate("/main");
+            })
+            .catch((response) => {
+                console.log('삭제실패');
+            });
+    }
 
     useEffect(() => {
         const loadData = async () => {
@@ -45,7 +60,7 @@ const Main = () => {
                 <Menu theme="dark" />
             </Header>
             <div style={{ maxWidth: '1px', margin: "20px" }}>
-                <img src="assets/img/canon_ci.png" alt="logo"></img>
+                <img src={CanonImage} alt="logo"></img>
             </div>
             <Content style={{ padding: '0 50px' }}>
                 <div className="site-layout-content" style={{ background: colorBgContainer }}>
@@ -53,24 +68,38 @@ const Main = () => {
                         <Todo></Todo>
 
                         <Card style={{ 
-                            maxWidth: 360, margin: "10px"
+                            maxWidth: 700, margin: "10px"
                             }}>
                             {todos.map(data => (
                                 <div key={data.id}>
-                                    <Link to={`View/${data.id}`}>
-                                        <li style={{fontSize: "28px"}}>{data.title}</li>
-                                    </Link>
-                                    <Link to={`Update/${data.id}`}>
-                                        <div style={{fontSize: "20px"}}><FormOutlined />수정</div>
-                                    </Link>
+                                    <Space size={10}>
+
+                                        <Link to={`Update/${data.id}`}>
+                                            <span className='main-todo-content'>
+                                                <Button type="primary" shape="circle" icon={<EditOutlined />} size={10}>
+                                                </Button>                                                               
+                                            </span>
+                                        </Link>
+                                        
+                                        <span className='main-todo-content' onClick={() => del(data.id)}>
+                                            <Button type="primary" shape="circle" icon={<DeleteOutlined />} size={10}>
+                                            </Button>
+                                        </span>
+
+                                        <Link to={`View/${data.id}`}>
+                                            <span className='main-todo-title'>{data.title}</span>
+                                        </Link>
+                                    </Space>
+                                    
                                     <Divider />
                                 </div>
                             ))}
                         </Card>
 
-                        <Button type="primary">
-                            <Link to="/Create">생성</Link>
-                        </Button>
+                        <Link to="/Create">
+                            <Button type="primary" shape="circle" icon={<PlusCircleOutlined />} size={10}></Button>
+                        </Link>
+                        
                     </div>
                 </div>
             </Content>
