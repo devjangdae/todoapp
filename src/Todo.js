@@ -2,8 +2,12 @@ import React from "react";
 
 function Todo(){
     return (
-        <div>
-            <h1>투두리스트</h1>
+        <div style={{
+            display: "flex",
+            justifyContent: "flex-start",
+            alignItems: "center"
+        }}>
+            <div style={{fontSize: "36px", fontWeight: 700}}>Today's progress task</div>
         </div>
     )
 }

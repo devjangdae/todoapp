@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
+import { DeleteOutlined } from '@ant-design/icons';
+
 const axiosAdd = require('axios').default;
 
 const View = () => {
@@ -47,7 +49,7 @@ const View = () => {
             <h3>content : {todos.content}</h3>
             <h5>id : {todos.id}</h5>
             <h5>createdAt : {todos.createdAt}</h5>
-            <div onClick={del}>삭제</div>
+            <div onClick={del}><DeleteOutlined />삭제</div>
         </div>
     );
 };
