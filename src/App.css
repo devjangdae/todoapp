@@ -11,6 +11,7 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  /* 나눔스퀘어 폰트추가 */
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
