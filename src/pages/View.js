@@ -81,7 +81,7 @@ const View = () => {
                         </div>
                         <Card title={<div className='view-todo-title'>{todos.title}</div>} bordered={true} style={{ maxWidth: 700, margin: "10px" }}>
                             <div>
-                                <div className='view-todo-content'>{todos.content}</div>
+                                <div className='view-todo-content'><pre>{todos.content}</pre></div>
                                 <Space size={10}>
                                     <Link to={`/Update/${id}`}>
                                         <span className='main-todo-content'>
