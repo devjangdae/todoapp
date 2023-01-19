@@ -103,12 +103,12 @@ const Update = () => {
   
               <Card title={<div className='view-todo-title'>Task Name</div>} bordered={true} style={{ maxWidth: 700, margin: "10px" }}>
                 <div>
-                    <Input value={title} onChange={onTitleChange} placeholder="롯데마트가기" />
+                    <Input value={title} onChange={onTitleChange} placeholder="title을 입력하세요." />
                 </div>
               </Card>
   
               <Card title={<div className='view-todo-title'>Desciription</div>} bordered={true} style={{ maxWidth: 700, margin: "10px" }}>
-                <TextArea value={content} rows={4} placeholder="계란사기, 우유사기" maxLength={500} onChange={onContentChange}/>
+                <TextArea value={content} rows={4} placeholder="description을 입력하세요." maxLength={500} onChange={onContentChange}/>
               </Card>
   
               <span className='main-todo-content' onClick={updateTodo}>
