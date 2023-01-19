@@ -57,18 +57,20 @@ const Update = () => {
     }
 
     const submit = () => {
+      if (window.confirm('정말 수정하시겠습니까?')) {
         axios.put(`http://localhost:8080/todos/${id}`,
-            {
-                title: title,
-                content: content
-            }
+          {
+            title: title,
+            content: content
+          }
         )
-            .then((response) => {
-                navigate("/main");
-            })
-            .catch((response) => {
-                console.log('전송실패');
-            });
+          .then((response) => {
+            navigate("/main");
+          })
+          .catch((response) => {
+            console.log('전송실패');
+          });
+      }
     }
 
     return (

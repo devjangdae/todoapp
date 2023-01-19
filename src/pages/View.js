@@ -25,15 +25,16 @@ const View = () => {
     const navigate = useNavigate();
 
     const del = () => {
-        axios.delete(`http://localhost:8080/todos/${id}`)
-            .then((response) => {
-                //console.log(response.data);
-                navigate("/main");
-            })
-            .catch((response) => {
-                console.log('삭제실패');
-            });
-            
+        if (window.confirm('정말 삭제하시겠습니까?')) {
+            axios.delete(`http://localhost:8080/todos/${id}`)
+                .then((response) => {
+                    //console.log(response.data);
+                    navigate("/main");
+                })
+                .catch((response) => {
+                    console.log('삭제실패');
+                });
+        }
     }
 
     useEffect(() => {
@@ -81,7 +82,7 @@ const View = () => {
                         </div>
                         <Card title={<div className='view-todo-title'>{todos.title}</div>} bordered={true} style={{ maxWidth: 700, margin: "10px" }}>
                             <div>
-                                <div className='view-todo-content'><pre>{todos.content}</pre></div>
+                                <div className='view-todo-content'><pre style={{maxHeight: 300}}>{todos.content}</pre></div>
                                 <Space size={10}>
                                     <Link to={`/Update/${id}`}>
                                         <span className='main-todo-content'>

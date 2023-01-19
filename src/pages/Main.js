@@ -25,14 +25,16 @@ const Main = () => {
     const navigate = useNavigate();
 
     const del = (del_id) => {
-        axios.delete(`http://localhost:8080/todos/${del_id}`)
-            .then((response) => {
-                //console.log(response.data);
-                navigate("/main");
-            })
-            .catch((response) => {
-                console.log('삭제실패');
-            });
+        if (window.confirm('정말 삭제하시겠습니까?')) {
+            axios.delete(`http://localhost:8080/todos/${del_id}`)
+                .then((response) => {
+                    //console.log(response.data);
+                    navigate("/main");
+                })
+                .catch((response) => {
+                    console.log('삭제실패');
+                });
+        }
     }
 
     useEffect(() => {
