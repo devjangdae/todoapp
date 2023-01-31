@@ -27,7 +27,7 @@ function Container(){
 
                     <div className="App">
                         <Button type="primary">
-                            <Link to="/Create">생성</Link>
+                            <Link to="/create">생성</Link>
                         </Button>
                     </div>
 
