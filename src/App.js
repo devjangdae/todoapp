@@ -1,11 +1,12 @@
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
-import { Navigate } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Main from "./pages/Main";
 import View from "./pages/View";
 import Create from "./pages/Create";
 import Update from "./pages/Update";
 import Practice from "./pages/Practice";
+
+import "antd/dist/reset.css";
 
 function App() {
   return (

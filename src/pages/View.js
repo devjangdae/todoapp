@@ -1,26 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
-
-import "antd/dist/reset.css";
-import {
-  DeleteOutlined,
-  FormOutlined,
-  LeftOutlined,
-  EditOutlined,
-} from "@ant-design/icons";
-import {
-  Button,
-  Layout,
-  Menu,
-  theme,
-  Divider,
-  Card,
-  Typography,
-  Space,
-} from "antd";
+import { useParams, useNavigate, Link } from "react-router-dom";
+import { DeleteOutlined, LeftOutlined, EditOutlined } from "@ant-design/icons";
+import { Button, Layout, Menu, theme, Card, Typography, Space } from "antd";
 
 import CanonImage from "./canon_ci.png";
 

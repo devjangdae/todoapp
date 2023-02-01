@@ -2,7 +2,6 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import "antd/dist/reset.css";
 import { Button, Layout, Menu, theme, Divider, Card, Space, Input } from "antd";
 import { LeftOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import CanonImage from "./canon_ci.png";
