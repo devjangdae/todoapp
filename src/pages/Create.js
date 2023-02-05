@@ -35,6 +35,9 @@ const Create = () => {
     }
   };
 
+  /*
+      RESTAPI -> post 메소드
+  */
   const submit = () => {
     axios
       .post("http://localhost:8080/todos", {

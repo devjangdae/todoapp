@@ -51,6 +51,9 @@ const Update = () => {
     }
   };
 
+  /*
+      RESTAPI -> put 메소드
+  */
   const submit = () => {
     if (window.confirm("정말 수정하시겠습니까?")) {
       axios

@@ -19,6 +19,9 @@ const Main = () => {
   const id = params.id;
   const navigate = useNavigate();
 
+  /*
+      RESTAPI -> delete 메소드
+  */
   const del = (del_id) => {
     if (window.confirm("정말 삭제하시겠습니까?")) {
       axios
@@ -33,6 +36,9 @@ const Main = () => {
     }
   };
 
+  /*
+      RESTAPI -> get 메소드
+  */
   useEffect(() => {
     const loadData = async () => {
       try {
